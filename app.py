@@ -18,6 +18,10 @@ FONT_SIZE = 30
 FONT_COLOR = (0, 0, 0) # Black
 
 # --- HEADER ---
+# ADD YOUR LOGO HERE
+st.image("logo.png", width=100) # Adjust width as needed
+
+# --- HEADER ---
 st.title("🎓📄 CFG MongoDB Certificate Generator")
 
 # --- USER INPUT ---
