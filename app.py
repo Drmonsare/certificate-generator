@@ -5,7 +5,7 @@ from io import BytesIO
 
 # --- CONFIGURATION ---
 st.set_page_config(
-    page_title="Certificate Generator",
+    page_title="GFG MongoDB Certificate Generator",
     page_icon="🏅",
     layout="centered"
 )
@@ -21,7 +21,7 @@ FONT_COLOR = (0, 0, 0) # Black
 # FIX: Load the logo from a URL to prevent file not found errors
 st.image("https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210420155809/gfg-new-logo.png", width=300)
 
-st.title("📜 Certificate Generator")
+st.title("📜 GFG MongoDB Certificate Generator")
 
 # --- USER INPUT ---
 new_name = st.text_input("Enter the full name for the certificate:", placeholder="e.g., Jane Doe")
