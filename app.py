@@ -14,9 +14,8 @@ st.set_page_config(
 ORIGINAL_NAME_PLACEHOLDER = "Ritesh Kumar"
 PDF_TEMPLATE_PATH = "E-Generated_Certificate.pdf"
 
-# --- CHANGE 1: FONT STYLE ---
-# To match the serif font in your image, we change "helv" to "times".
-FONT_NAME = "times"
+# --- FIX: Use "tiro", the official name for Times-Roman in PyMuPDF ---
+FONT_NAME = "tiro"
 FONT_SIZE = 30
 FONT_COLOR = (0, 0, 0) # Black
 
@@ -48,10 +47,7 @@ if st.button("Generate Certificate ✨", type="primary"):
                 new_text_len = fitz.get_text_length(new_name, fontname=FONT_NAME, fontsize=FONT_SIZE)
                 x_start_point = rect.x0 + (rect.width - new_text_len) / 2
                 
-                # --- CHANGE 2: VERTICAL POSITION ---
                 # To move the text 0.2 cm up from the line:
-                # 1 cm = 28.35 points. 0.2 cm = 5.67 points.
-                # Moving UP means SUBTRACTING from the y-coordinate.
                 vertical_offset = 5.7
                 y_start_point = rect.y1 - vertical_offset
 
