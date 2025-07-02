@@ -13,7 +13,7 @@ st.set_page_config(
 
 # --- IMPORTANT ---
 # Change this to the exact placeholder text in your PDF template.
-ORIGINAL_NAME_PLACEHOLDER = "Your Name Here"
+ORIGINAL_NAME_PLACEHOLDER = "Participant Name"
 PDF_TEMPLATE_PATH = "E-Generated_Certificate.pdf"
 FONT_NAME = "helv" # Helvetica
 FONT_SIZE = 26
