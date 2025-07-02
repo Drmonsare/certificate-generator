@@ -5,7 +5,7 @@ from io import BytesIO
 
 # --- CONFIGURATION ---
 st.set_page_config(
-    page_title="GFG MongoDB Certificate /n Generator",
+    page_title="GFG MongoDB Certificate Generator",
     page_icon="🏅",
     layout="centered"
 )
