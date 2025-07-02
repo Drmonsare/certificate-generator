@@ -5,8 +5,8 @@ from io import BytesIO
 
 # --- CONFIGURATION ---
 st.set_page_config(
-    page_title="Certificate Generator",
-    page_icon="✅",
+    page_title="CFG MongoDB Certificate Generator",
+    page_icon="🏅",
     layout="centered"
 )
 
@@ -18,7 +18,7 @@ FONT_SIZE = 30
 FONT_COLOR = (0, 0, 0) # Black
 
 # --- HEADER ---
-st.title("📜 Certificate Generator")
+st.title("📜 CFG MongoDB Certificate Generator")
 st.write(f"This app will replace the name '{ORIGINAL_NAME_PLACEHOLDER}' in the PDF.")
 
 # --- USER INPUT ---
