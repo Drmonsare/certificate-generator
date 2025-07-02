@@ -13,8 +13,6 @@ st.set_page_config(
 # --- PDF & FONT SETTINGS ---
 ORIGINAL_NAME_PLACEHOLDER = "Ritesh Kumar"
 PDF_TEMPLATE_PATH = "E-Generated_Certificate.pdf"
-
-# --- FIX: Use "tiro", the official name for Times-Roman in PyMuPDF ---
 FONT_NAME = "tiro"
 FONT_SIZE = 30
 FONT_COLOR = (0, 0, 0) # Black
@@ -47,7 +45,6 @@ if st.button("Generate Certificate ✨", type="primary"):
                 new_text_len = fitz.get_text_length(new_name, fontname=FONT_NAME, fontsize=FONT_SIZE)
                 x_start_point = rect.x0 + (rect.width - new_text_len) / 2
                 
-                # To move the text 0.2 cm up from the line:
                 vertical_offset = 5.7
                 y_start_point = rect.y1 - vertical_offset
 
@@ -77,7 +74,8 @@ if st.button("Generate Certificate ✨", type="primary"):
                     st.download_button(
                         label="Download JPG 🖼️",
                         data=jpg_buffer,
-                        file_name=f"Certificate_{new_name.replace(' ', '_')}.jpg",
+                        # FIX: Use .strip() to remove accidental leading/trailing spaces before replacing
+                        file_name=f"Certificate_{new_name.strip().replace(' ', '_')}.jpg",
                         mime="image/jpeg"
                     )
                 else:
