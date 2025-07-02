@@ -6,7 +6,7 @@ from io import BytesIO
 # --- CONFIGURATION ---
 st.set_page_config(
     page_title="Certificate Generator",
-    page_icon="✅",
+    page_icon="🏅",
     layout="centered"
 )
 
@@ -22,7 +22,6 @@ FONT_COLOR = (0, 0, 0) # Black
 st.image("https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210420155809/gfg-new-logo.png", width=300)
 
 st.title("📜 Certificate Generator")
-st.write(f"This app will replace the name '{ORIGINAL_NAME_PLACEHOLDER}' in the PDF.")
 
 # --- USER INPUT ---
 new_name = st.text_input("Enter the full name for the certificate:", placeholder="e.g., Jane Doe")
