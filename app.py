@@ -18,8 +18,8 @@ FONT_SIZE = 30
 FONT_COLOR = (0, 0, 0) # Black
 
 # --- HEADER ---
-# ADD YOUR LOGO HERE
-st.image("logo.png", width=100) # Adjust width as needed
+# FIX: Load the logo from a URL to prevent file not found errors
+st.image("https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210420155809/gfg-new-logo.png", width=300)
 
 st.title("📜 Certificate Generator")
 st.write(f"This app will replace the name '{ORIGINAL_NAME_PLACEHOLDER}' in the PDF.")
