@@ -11,11 +11,13 @@ st.set_page_config(
 )
 
 # --- PDF & FONT SETTINGS ---
-# Set the placeholder to the exact name found in your PDF
 ORIGINAL_NAME_PLACEHOLDER = "Ritesh Kumar"
 PDF_TEMPLATE_PATH = "E-Generated_Certificate.pdf"
-FONT_NAME = "helv"  # Using a standard font like Helvetica
-FONT_SIZE = 30      # Adjust font size as needed
+
+# --- CHANGE 1: FONT STYLE ---
+# To match the serif font in your image, we change "helv" to "times".
+FONT_NAME = "times"
+FONT_SIZE = 30
 FONT_COLOR = (0, 0, 0) # Black
 
 # --- HEADER ---
@@ -28,33 +30,30 @@ new_name = st.text_input("Enter the full name for the certificate:", placeholder
 if st.button("Generate Certificate ✨", type="primary"):
     if new_name:
         try:
-            # Open the PDF template
             doc = fitz.open(PDF_TEMPLATE_PATH)
             page = doc[0]
 
-            # Find all instances of the placeholder text
             text_instances = page.search_for(ORIGINAL_NAME_PLACEHOLDER)
 
             if not text_instances:
-                st.error(f"⚠️ Error: Could not find the text '{ORIGINAL_NAME_PLACEHOLDER}' in the PDF. Check for typos.")
+                st.error(f"⚠️ Error: Could not find the text '{ORIGINAL_NAME_PLACEHOLDER}' in the PDF.")
             else:
-                # Erase the placeholder text by adding a white redaction rectangle
                 for inst in text_instances:
-                    page.add_redact_annot(inst, fill=(1, 1, 1)) # Fill with white
+                    page.add_redact_annot(inst, fill=(1, 1, 1))
                 
-                # Apply the redactions to permanently remove the old text
                 page.apply_redactions()
 
-                # --- Add the new name, centered ---
-                # We use the position of the first found instance
-                rect = text_instances[0] 
+                rect = text_instances[0]
                 
-                # Calculate where to insert the new text to be centered
                 new_text_len = fitz.get_text_length(new_name, fontname=FONT_NAME, fontsize=FONT_SIZE)
                 x_start_point = rect.x0 + (rect.width - new_text_len) / 2
                 
-                # The y-coordinate should be the baseline of the original text's box
-                y_start_point = rect.y1 
+                # --- CHANGE 2: VERTICAL POSITION ---
+                # To move the text 0.2 cm up from the line:
+                # 1 cm = 28.35 points. 0.2 cm = 5.67 points.
+                # Moving UP means SUBTRACTING from the y-coordinate.
+                vertical_offset = 5.7
+                y_start_point = rect.y1 - vertical_offset
 
                 page.insert_text(
                     (x_start_point, y_start_point),
