@@ -5,8 +5,8 @@ from io import BytesIO
 
 # --- CONFIGURATION ---
 st.set_page_config(
-    page_title="CFG MongoDB Certificate Generator",
-    page_icon="🏅",
+    page_title="Certificate Generator",
+    page_icon="✅",
     layout="centered"
 )
 
@@ -21,8 +21,8 @@ FONT_COLOR = (0, 0, 0) # Black
 # ADD YOUR LOGO HERE
 st.image("logo.png", width=100) # Adjust width as needed
 
-# --- HEADER ---
-st.title("🎓📄 CFG MongoDB Certificate Generator")
+st.title("📜 Certificate Generator")
+st.write(f"This app will replace the name '{ORIGINAL_NAME_PLACEHOLDER}' in the PDF.")
 
 # --- USER INPUT ---
 new_name = st.text_input("Enter the full name for the certificate:", placeholder="e.g., Jane Doe")
@@ -77,7 +77,6 @@ if st.button("Generate Certificate ✨", type="primary"):
                     st.download_button(
                         label="Download JPG 🖼️",
                         data=jpg_buffer,
-                        # FIX: Use .strip() to remove accidental leading/trailing spaces before replacing
                         file_name=f"Certificate_{new_name.strip().replace(' ', '_')}.jpg",
                         mime="image/jpeg"
                     )
