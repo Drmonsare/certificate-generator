@@ -19,7 +19,6 @@ FONT_COLOR = (0, 0, 0) # Black
 
 # --- HEADER ---
 st.title("🎓📄 CFG MongoDB Certificate Generator")
-st.write(f"This app will replace the name '{ORIGINAL_NAME_PLACEHOLDER}' in the PDF.")
 
 # --- USER INPUT ---
 new_name = st.text_input("Enter the full name for the certificate:", placeholder="e.g., Jane Doe")
